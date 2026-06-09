@@ -1,0 +1,187 @@
+.gcv {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #0a0a08;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gcv__flash {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: #fff;
+  opacity: 0.9;
+  animation: gcvFlash 0.2s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes gcvFlash {
+  0% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.gcv__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: max(48px, env(safe-area-inset-top, 44px)) 20px 12px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    transparent 100%
+  );
+}
+
+.gcv__leave {
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 6px 14px;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s;
+}
+
+.gcv__leave:active {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.gcv__group-name {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: #ffe033;
+}
+
+.gcv__grid {
+  position: absolute;
+  top: max(96px, calc(env(safe-area-inset-top, 44px)+52px));
+  bottom: max(120px, calc(env(safe-area-inset-bottom, 0px)+100px));
+  left: 0;
+  right: 0;
+  display: grid;
+  gap: 3px;
+  background: #222;
+}
+
+.gcv__cell {
+  position: relative;
+  overflow: hidden;
+  background: #1a1a14;
+}
+
+.gcv__cell--empty {
+  background: #111;
+}
+
+.gcv__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.gcv__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a2a4a 0%, #0a1a2a 100%);
+}
+
+.gcv__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #4e86ff;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(78, 134, 255, 0.4);
+}
+
+.gcv__cell-label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px 8px;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+}
+
+.gcv__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.gcv__bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding-bottom: max(28px, env(safe-area-inset-bottom));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.gcv__shutter {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: transparent;
+  border: 3.5px solid #ffe033;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s;
+}
+
+.gcv__shutter:active:not(.gcv__shutter--disabled) {
+  transform: scale(0.92);
+}
+
+.gcv__shutter--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.gcv__shutter-inner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffe033;
+}
