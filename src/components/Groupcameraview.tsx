@@ -2,7 +2,7 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import type { GroupEntry } from "../store/groupstore";
 import type { FriendEntry } from "../store/friendstore";
 import type { MediaItem } from "../types.ts";
-import "./GroupCameraView.css";
+import "./Groupcameraview.css";
 
 interface Props {
   group: GroupEntry;
